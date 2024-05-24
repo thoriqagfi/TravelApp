@@ -1,0 +1,54 @@
+[
+    {
+      "Place_Id": 1,
+      "Place_Name": "Monumen Nasional",
+      "Description": "Monumen Nasional atau yang populer disingkat dengan Monas atau Tugu Monas adalah monumen peringatan setinggi 132 meter (433 kaki) yang didirikan untuk mengenang perlawanan dan perjuangan rakyat Indonesia untuk merebut kemerdekaan dari pemerintahan kolonial Hindia Belanda. Pembangunan monumen ini dimulai pada tanggal 17 Agustus 1961 di bawah perintah presiden Soekarno dan dibuka untuk umum pada tanggal 12 Juli 1975. Tugu ini dimahkotai lidah api yang dilapisi lembaran emas yang melambangkan semangat perjuangan yang menyala-nyala. Monumen Nasional terletak tepat di tengah Lapangan Medan Merdeka, Jakarta Pusat.",
+      "Category": "Budaya",
+      "City": "Jakarta",
+      "Price": 20000,
+      "Rating": 4.6,
+      "Time_Minutes": 15,
+      "Coordinate": "{'lat': -6.1753924, 'lng': 106.8271528}",
+      "Lat": -6.1753924,
+      "Long": 106.8271528
+    },
+    {
+      "Place_Id": 2,
+      "Place_Name": "Kota Tua",
+      "Description": "Kota tua di Jakarta, yang juga bernama Kota Tua, berpusat di Alun-Alun Fatahillah, yaitu alun-alun yang ramai dengan pertunjukan rutin tarian tradisional. Museum Sejarah Jakarta adalah bangunan era Belanda dengan lukisan dan barang antik, sedangkan Museum Wayang memamerkan boneka kayu khas Jawa. Desa Glodok, atau Chinatown, terkenal dengan makanan kaki lima, seperti pangsit dan mi goreng. Di dekatnya, terdapat sekunar dan kapal penangkap ikan di pelabuhan Sunda Kelapa yang kuno",
+      "Category": "Budaya",
+      "City": "Jakarta",
+      "Price": 0,
+      "Rating": 4.6,
+      "Time_Minutes": 90,
+      "Coordinate": "{'lat': -6.137644799999999, 'lng': 106.8171245}",
+      "Lat": -6.1376448,
+      "Long": 106.8171245
+    },
+    {
+      "Place_Id": 3,
+      "Place_Name": "Dunia Fantasi",
+      "Description": "Dunia Fantasi atau disebut juga Dufan adalah tempat hiburan yang terletak di kawasan Taman Impian Jaya Ancol, Jakarta Utara, Indonesia. Dufan diresmikan dan dibuka pada tanggal 29 Agustus 1985.",
+      "Category": "Taman Hiburan",
+      "City": "Jakarta",
+      "Price": 270000,
+      "Rating": 4.6,
+      "Time_Minutes": 360,
+      "Coordinate": "{'lat': -6.125312399999999, 'lng': 106.8335377}",
+      "Lat": -6.1253124,
+      "Long": 106.8335377
+    },
+    {
+      "Place_Id": 4,
+      "Place_Name": "Taman Mini Indonesia Indah (TMII)",
+      "Description": "Taman Mini Indonesia Indah merupakan suatu kawasan taman wisata bertema budaya Indonesia di Jakarta Timur. Area seluas kurang lebih 150 hektare atau 1,5 kilometer persegi ini terletak pada koordinat 6°18′6.8″LS,106°53′47.2″BT",
+      "Category": "Taman Hiburan",
+      "City": "Jakarta",
+      "Price": 10000,
+      "Rating": 4.5,
+      "Time_Minutes": "",
+      "Coordinate": "{'lat': -6.302445899999999, 'lng': 106.8951559}",
+      "Lat": -6.3024459,
+      "Long": 106.8951559
+    },
+]

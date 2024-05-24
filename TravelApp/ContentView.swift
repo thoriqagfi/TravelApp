@@ -8,14 +8,12 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var modelDataViewModel = ModelDataViewModel()
+    @StateObject var placemarkViewModel = PlacemarkViewModel()
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            ContentNavigation(placemarkViewModel: placemarkViewModel, modelDataViewModel: modelDataViewModel)
         }
-        .padding()
     }
 }
 
