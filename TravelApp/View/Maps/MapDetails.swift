@@ -11,6 +11,7 @@ import MapKit
 struct MapDetailsView: View {
     @StateObject private var locationService = LocationService()
     @StateObject private var unsplashImageService = UnsplashImageService()
+    @StateObject private var cloudkitManager = CloudKitManager()
     @State private var isLoadingImage: Bool = false
     
     @ObservedObject var placemarkViewModel: PlacemarkViewModel
@@ -118,10 +119,10 @@ struct MapDetailsView: View {
                                 .font(.headline)
                             Text("\(nearbyPlacemark.city) - \(nearbyPlacemark.category)")
                                 .font(.subheadline)
-                            Text("\(String(format: "%.2f", placemarkViewModel.distance(from: placemark!, to: nearbyPlacemark))) km from here")
+                            Text("\(String(format: "%.2f", placemarkViewModel.distance(from: placemark!, to: nearbyPlacemark))) km from \(placemark!.name)")
                                 .font(.footnote)
                         }
-                        .frame(width: 200)
+//                        .frame(width: 200)
                         .padding()
                         .foregroundColor(.white)
                         .background(Color.blue.opacity(0.8))
@@ -169,16 +170,31 @@ struct MapDetailsView: View {
     
     private var actionButtons: some View {
         HStack {
-            Button(action: {
-                // Add to Itinerary Action
-            }) {
-                Label("Add to Favorites", systemImage: "plus.circle.fill")
+            if cloudkitManager.isFavorite(placemark: placemark!) {
+                Button(action: {
+                    cloudkitManager.deleteFavoritePlacemark(placemark: placemark!)
+                    showDetails.toggle()
+                }) {
+                    Label("Remove from Favorites", systemImage: "minus.circle.fill")
+                }
+                .foregroundStyle(.white)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 12)
+                .background(Color.red)
+                .cornerRadius(12.0)
+            } else {
+                Button(action: {
+                    cloudkitManager.saveFavoritePlacemark(placemark: placemark!)
+                    showDetails.toggle()
+                }) {
+                    Label("Add to Favorites", systemImage: "plus.circle.fill")
+                }
+                .foregroundStyle(.white)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 12)
+                .background(Color(red: 0.18, green: 0.25, blue: 0.35))
+                .cornerRadius(12.0)
             }
-            .foregroundStyle(.white)
-            .frame(maxWidth: .infinity)
-            .padding(.vertical, 12)
-            .background(Color(red: 0.18, green: 0.25, blue: 0.35))
-            .cornerRadius(12.0)
             
             Button(action: {
                 placemarkViewModel.fetchRoute(placemark: placemark, locationService: locationService)

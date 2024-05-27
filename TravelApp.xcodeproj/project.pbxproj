@@ -30,6 +30,12 @@
 		D0A23F502BF44FBC0058FC31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A23F4F2BF44FBC0058FC31 /* Assets.xcassets */; };
 		D0A23F532BF44FBC0058FC31 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A23F522BF44FBC0058FC31 /* Preview Assets.xcassets */; };
 		D0A23F602BF641410058FC31 /* Placemark.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A23F5F2BF641410058FC31 /* Placemark.swift */; };
+		D0A5E6932C01E0270091505B /* AuthenticationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A5E6922C01E0270091505B /* AuthenticationView.swift */; };
+		D0A5E6962C01E1AA0091505B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D0A5E6952C01E1AA0091505B /* GoogleService-Info.plist */; };
+		D0A5E6992C01E2130091505B /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = D0A5E6982C01E2130091505B /* FirebaseAnalytics */; };
+		D0A5E69B2C01E2130091505B /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = D0A5E69A2C01E2130091505B /* FirebaseAuth */; };
+		D0A5E69D2C01E33B0091505B /* AuthenticationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A5E69C2C01E33B0091505B /* AuthenticationViewModel.swift */; };
+		D0A5E69F2C01EFEF0091505B /* CloudkitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A5E69E2C01EFEF0091505B /* CloudkitManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +63,12 @@
 		D0A23F4F2BF44FBC0058FC31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D0A23F522BF44FBC0058FC31 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D0A23F5F2BF641410058FC31 /* Placemark.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Placemark.swift; sourceTree = "<group>"; };
+		D0A5E6922C01E0270091505B /* AuthenticationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationView.swift; sourceTree = "<group>"; };
+		D0A5E6942C01E0BC0091505B /* TravelApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TravelApp.entitlements; sourceTree = "<group>"; };
+		D0A5E6952C01E1AA0091505B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D0A5E69C2C01E33B0091505B /* AuthenticationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationViewModel.swift; sourceTree = "<group>"; };
+		D0A5E69E2C01EFEF0091505B /* CloudkitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudkitManager.swift; sourceTree = "<group>"; };
+		D0A5E6A02C023D700091505B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +76,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D0A5E6992C01E2130091505B /* FirebaseAnalytics in Frameworks */,
+				D0A5E69B2C01E2130091505B /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +112,7 @@
 			isa = PBXGroup;
 			children = (
 				D08F67B92BF6F4C9003F0C3F /* PlacemarkViewModel.swift */,
+				D0A5E69C2C01E33B0091505B /* AuthenticationViewModel.swift */,
 				D08F67C32BF716BA003F0C3F /* ModelDataViewModel.swift */,
 			);
 			path = ViewModel;
@@ -107,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				D08F67D02BF90D61003F0C3F /* LocationService.swift */,
+				D0A5E69E2C01EFEF0091505B /* CloudkitManager.swift */,
 				D02A23102BFB4D1500B49695 /* UnsplashImageService.swift */,
 			);
 			path = Utilities;
@@ -131,6 +147,9 @@
 		D0A23F4A2BF44FBB0058FC31 /* TravelApp */ = {
 			isa = PBXGroup;
 			children = (
+				D0A5E6A02C023D700091505B /* Info.plist */,
+				D0A5E6952C01E1AA0091505B /* GoogleService-Info.plist */,
+				D0A5E6942C01E0BC0091505B /* TravelApp.entitlements */,
 				D08F67CF2BF90D53003F0C3F /* Utilities */,
 				D08F67B82BF6F4B9003F0C3F /* ViewModel */,
 				D0A23F632BF645540058FC31 /* Resources */,
@@ -155,6 +174,7 @@
 		D0A23F592BF44FE70058FC31 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				D0A5E6912C01E00F0091505B /* Authentication */,
 				D01DB98E2C0092010082F103 /* Recommendations */,
 				D01DB98B2C00884C0082F103 /* Maps */,
 				D08F67D22BF9E861003F0C3F /* ContentNavigation.swift */,
@@ -180,6 +200,14 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		D0A5E6912C01E00F0091505B /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				D0A5E6922C01E0270091505B /* AuthenticationView.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -196,6 +224,10 @@
 			dependencies = (
 			);
 			name = TravelApp;
+			packageProductDependencies = (
+				D0A5E6982C01E2130091505B /* FirebaseAnalytics */,
+				D0A5E69A2C01E2130091505B /* FirebaseAuth */,
+			);
 			productName = TravelApp;
 			productReference = D0A23F482BF44FBB0058FC31 /* TravelApp.app */;
 			productType = "com.apple.product-type.application";
@@ -224,6 +256,9 @@
 				Base,
 			);
 			mainGroup = D0A23F3F2BF44FBB0058FC31;
+			packageReferences = (
+				D0A5E6972C01E2130091505B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = D0A23F492BF44FBB0058FC31 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -240,6 +275,7 @@
 			files = (
 				D0570BB62BFD964400444732 /* tourismPackage.json in Resources */,
 				D08F67B52BF6DE78003F0C3F /* placemarkData.json in Resources */,
+				D0A5E6962C01E1AA0091505B /* GoogleService-Info.plist in Resources */,
 				D0A23F532BF44FBC0058FC31 /* Preview Assets.xcassets in Resources */,
 				D0A23F502BF44FBC0058FC31 /* Assets.xcassets in Resources */,
 			);
@@ -256,16 +292,19 @@
 				D01DB9922C00944A0082F103 /* RecommendationCard.swift in Sources */,
 				D08F67D12BF90D61003F0C3F /* LocationService.swift in Sources */,
 				D01DB9902C0092F10082F103 /* RecommendationsContentView.swift in Sources */,
+				D0A5E69F2C01EFEF0091505B /* CloudkitManager.swift in Sources */,
 				D08F67C42BF716BA003F0C3F /* ModelDataViewModel.swift in Sources */,
 				D0A23F4E2BF44FBB0058FC31 /* ContentView.swift in Sources */,
 				D08F67CE2BF8DD61003F0C3F /* Maps.swift in Sources */,
 				D08F67C62BF74059003F0C3F /* UserAnnotationCircle.swift in Sources */,
 				D08F67BA2BF6F4C9003F0C3F /* PlacemarkViewModel.swift in Sources */,
+				D0A5E69D2C01E33B0091505B /* AuthenticationViewModel.swift in Sources */,
 				D08F67D52BFA2AFD003F0C3F /* CustomAnnotationView.swift in Sources */,
 				D01DB98A2C0086A30082F103 /* PlacemarkCard.swift in Sources */,
 				D0570BB22BFC2DAA00444732 /* SiderbarMapsView.swift in Sources */,
 				D08F67D32BF9E861003F0C3F /* ContentNavigation.swift in Sources */,
 				D0570BB82BFDB92C00444732 /* TourismPackage.swift in Sources */,
+				D0A5E6932C01E0270091505B /* AuthenticationView.swift in Sources */,
 				D01DB98D2C00896F0082F103 /* DetailCardView.swift in Sources */,
 				D0A23F602BF641410058FC31 /* Placemark.swift in Sources */,
 				D02A23112BFB4D1500B49695 /* UnsplashImageService.swift in Sources */,
@@ -401,12 +440,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TravelApp/TravelApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TravelApp/Preview Content\"";
 				DEVELOPMENT_TEAM = H84M48MBJL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TravelApp/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -431,12 +472,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = TravelApp/TravelApp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"TravelApp/Preview Content\"";
 				DEVELOPMENT_TEAM = H84M48MBJL;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = TravelApp/Info.plist;
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -478,6 +521,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D0A5E6972C01E2130091505B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.26.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D0A5E6982C01E2130091505B /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0A5E6972C01E2130091505B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		D0A5E69A2C01E2130091505B /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D0A5E6972C01E2130091505B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D0A23F402BF44FBB0058FC31 /* Project object */;
 }

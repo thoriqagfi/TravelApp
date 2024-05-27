@@ -8,11 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
+    @AppStorage("log_Status") private var logStatus: Bool = true
+    
     @StateObject var modelDataViewModel = ModelDataViewModel()
     @StateObject var placemarkViewModel = PlacemarkViewModel()
+    @StateObject var authenticationViewModel = AuthenticationViewModel()
+    
     var body: some View {
         VStack {
-            ContentNavigation(placemarkViewModel: placemarkViewModel, modelDataViewModel: modelDataViewModel)
+            if logStatus {
+                ContentNavigation(placemarkViewModel: placemarkViewModel, modelDataViewModel: modelDataViewModel)
+            } else {
+                AuthenticationView(authenticationViewModel: authenticationViewModel)
+            }
         }
     }
 }

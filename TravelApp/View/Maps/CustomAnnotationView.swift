@@ -28,15 +28,15 @@ struct CustomAnnotationView: View {
     private func annotationImage(for category: String) -> some View {
         switch category {
         case "Bahari":
-            Image(systemName: "waveform.path.ecg")
+            Image(systemName: "figure.pool.swim")
         case "Cagar Alam":
-            Image(systemName: "leaf.arrow.circlepath")
+            Image(systemName: "leaf.circle.fill")
         case "Budaya":
-            Image(systemName: "paintpalette")
+            Image(systemName: "camera.circle.fill")
         case "Pusat Perbelanjaan":
             Image(systemName: "cart.fill")
         case "Taman Hiburan":
-            Image(systemName: "sparkles")
+            Image(systemName: "figure.2.and.child.holdinghands")
         case "Tempat Ibadah":
             Image(systemName: "building.columns")
         default:

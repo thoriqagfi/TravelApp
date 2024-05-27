@@ -17,13 +17,33 @@ class PlacemarkViewModel: ObservableObject {
     @Published var route: MKRoute?
     @Published var mapSelection: MKMapItem?
     @Published var cameraPosition: MapCameraPosition = .region(MKCoordinateRegion())
-
-    @EnvironmentObject var modelData: ModelDataViewModel
+    @Published var favoritePlacemarks: [Placemark] = []
     @Published var cameraRegion: MKCoordinateRegion = MKCoordinateRegion()
     
     private var cancellables = Set<AnyCancellable>()
     private let geocoder = CLGeocoder()
+    private let cloudKitManager = CloudKitManager()
 
+    func saveFavoritePlacemark(placemark: Placemark) {
+        cloudKitManager.saveFavoritePlacemark(placemark: placemark)
+    }
+    
+    func fetchFavoritePlacemarks() {
+        cloudKitManager.fetchFavoritePlacemarks()
+    }
+    
+    var favoritePlacemarksPublisher: Published<[Placemark]>.Publisher {
+        cloudKitManager.$favoritePlacemarks
+    }
+    
+    var isLoadingPublisher: Published<Bool>.Publisher {
+        cloudKitManager.$isLoading
+    }
+    
+    var errorMessagePublisher: Published<String>.Publisher {
+        cloudKitManager.$errorMessage
+    }
+    
     func updateCameraPosition(to placemark: Placemark) {
         let zoomOutRegion = MKCoordinateRegion(
             center: CLLocationCoordinate2D(latitude: placemark.lat, longitude: placemark.long),
@@ -92,9 +112,26 @@ class PlacemarkViewModel: ObservableObject {
     
     func fetchUnsplashImage(placemark: Placemark?, unsplashImageService: UnsplashImageService) {
         guard let placemark = placemark else {
-            print("Placemark is nil.")
             return
         }
         unsplashImageService.fetchImage(for: "\(placemark.name + placemark.city)")
+    }
+    
+    func placemarksNearUserLocation(locationService: LocationService, radius: Double = 5.0, placemarks: [Placemark]) -> [Placemark] {
+        return placemarks.filter { placemark in
+            let userLocation = CLLocation(latitude: locationService.latitude, longitude: locationService.longitude)
+            let placemarkLocation = CLLocation(latitude: placemark.lat, longitude: placemark.long)
+            return userLocation.distance(from: placemarkLocation) <= radius * 1000 // radius in meters
+        }
+    }
+    
+    func recommendedPlacemarks(at city: String, placemarks: [Placemark]) -> [Placemark] {
+        return placemarks.filter { $0.city == city }
+            .sorted { $0.rating > $1.rating }
+    }
+    
+    func distance(from: CLLocation, to: Placemark) -> Double {
+        let toLocation = CLLocation(latitude: to.lat, longitude: to.long)
+        return from.distance(from: toLocation) / 1000 // Convert to kilometers
     }
 }

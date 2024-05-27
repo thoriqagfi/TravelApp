@@ -13,7 +13,7 @@ struct PlacemarkCard: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
-            HStack(alignment: .center, content: {
+            HStack(alignment: .top, content: {
                 Text(placemark.name)
                     .font(.headline)
                     .foregroundColor(isSelected ? .white : .blue)

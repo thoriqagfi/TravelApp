@@ -21,7 +21,9 @@ class ModelDataViewModel: ObservableObject {
     }
 
     private func loadPlacemarks() {
-        placemarks = load("placemarkData.json")
+        if let placemarks: [Placemark] = load("placemarkData.json") {
+            self.placemarks = placemarks
+        }
     }
 
     private func loadTourismPackages() {

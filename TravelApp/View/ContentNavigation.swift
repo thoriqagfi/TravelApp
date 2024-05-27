@@ -29,7 +29,7 @@ struct ContentNavigation: View {
                 placemarkViewModel.showDetails = newValue != nil
             })
             
-            RecommendationsContentView()
+            RecommendationsContentView(placemarkViewModel: placemarkViewModel, modelDataViewModel: modelDataViewModel)
                 .tabItem {
                     Label("Recommendations", systemImage: "mappin")
                         .foregroundStyle(.blue)
