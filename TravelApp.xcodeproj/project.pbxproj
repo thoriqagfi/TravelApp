@@ -25,6 +25,9 @@
 		D08F67D12BF90D61003F0C3F /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F67D02BF90D61003F0C3F /* LocationService.swift */; };
 		D08F67D32BF9E861003F0C3F /* ContentNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F67D22BF9E861003F0C3F /* ContentNavigation.swift */; };
 		D08F67D52BFA2AFD003F0C3F /* CustomAnnotationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D08F67D42BFA2AFD003F0C3F /* CustomAnnotationView.swift */; };
+		D098A8112C041853009DE010 /* LottieViewComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = D098A8102C041853009DE010 /* LottieViewComponent.swift */; };
+		D098A8142C041943009DE010 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = D098A8132C041943009DE010 /* Lottie */; };
+		D098A8222C041DE5009DE010 /* loading3.json in Resources */ = {isa = PBXBuildFile; fileRef = D098A8212C041DE5009DE010 /* loading3.json */; };
 		D0A23F4C2BF44FBB0058FC31 /* TravelAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A23F4B2BF44FBB0058FC31 /* TravelAppApp.swift */; };
 		D0A23F4E2BF44FBB0058FC31 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0A23F4D2BF44FBB0058FC31 /* ContentView.swift */; };
 		D0A23F502BF44FBC0058FC31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D0A23F4F2BF44FBC0058FC31 /* Assets.xcassets */; };
@@ -57,6 +60,8 @@
 		D08F67D02BF90D61003F0C3F /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
 		D08F67D22BF9E861003F0C3F /* ContentNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentNavigation.swift; sourceTree = "<group>"; };
 		D08F67D42BFA2AFD003F0C3F /* CustomAnnotationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAnnotationView.swift; sourceTree = "<group>"; };
+		D098A8102C041853009DE010 /* LottieViewComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieViewComponent.swift; sourceTree = "<group>"; };
+		D098A8212C041DE5009DE010 /* loading3.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = loading3.json; sourceTree = "<group>"; };
 		D0A23F482BF44FBB0058FC31 /* TravelApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TravelApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0A23F4B2BF44FBB0058FC31 /* TravelAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TravelAppApp.swift; sourceTree = "<group>"; };
 		D0A23F4D2BF44FBB0058FC31 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -78,6 +83,7 @@
 			files = (
 				D0A5E6992C01E2130091505B /* FirebaseAnalytics in Frameworks */,
 				D0A5E69B2C01E2130091505B /* FirebaseAuth in Frameworks */,
+				D098A8142C041943009DE010 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -178,6 +184,7 @@
 				D01DB98E2C0092010082F103 /* Recommendations */,
 				D01DB98B2C00884C0082F103 /* Maps */,
 				D08F67D22BF9E861003F0C3F /* ContentNavigation.swift */,
+				D098A8102C041853009DE010 /* LottieViewComponent.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -194,6 +201,7 @@
 		D0A23F632BF645540058FC31 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D098A8212C041DE5009DE010 /* loading3.json */,
 				D08F67B42BF6DE78003F0C3F /* placemarkData.json */,
 				D0570BB52BFD964400444732 /* tourismPackage.json */,
 			);
@@ -227,6 +235,7 @@
 			packageProductDependencies = (
 				D0A5E6982C01E2130091505B /* FirebaseAnalytics */,
 				D0A5E69A2C01E2130091505B /* FirebaseAuth */,
+				D098A8132C041943009DE010 /* Lottie */,
 			);
 			productName = TravelApp;
 			productReference = D0A23F482BF44FBB0058FC31 /* TravelApp.app */;
@@ -258,6 +267,7 @@
 			mainGroup = D0A23F3F2BF44FBB0058FC31;
 			packageReferences = (
 				D0A5E6972C01E2130091505B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+				D098A8122C041943009DE010 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = D0A23F492BF44FBB0058FC31 /* Products */;
 			projectDirPath = "";
@@ -275,6 +285,7 @@
 			files = (
 				D0570BB62BFD964400444732 /* tourismPackage.json in Resources */,
 				D08F67B52BF6DE78003F0C3F /* placemarkData.json in Resources */,
+				D098A8222C041DE5009DE010 /* loading3.json in Resources */,
 				D0A5E6962C01E1AA0091505B /* GoogleService-Info.plist in Resources */,
 				D0A23F532BF44FBC0058FC31 /* Preview Assets.xcassets in Resources */,
 				D0A23F502BF44FBC0058FC31 /* Assets.xcassets in Resources */,
@@ -294,6 +305,7 @@
 				D01DB9902C0092F10082F103 /* RecommendationsContentView.swift in Sources */,
 				D0A5E69F2C01EFEF0091505B /* CloudkitManager.swift in Sources */,
 				D08F67C42BF716BA003F0C3F /* ModelDataViewModel.swift in Sources */,
+				D098A8112C041853009DE010 /* LottieViewComponent.swift in Sources */,
 				D0A23F4E2BF44FBB0058FC31 /* ContentView.swift in Sources */,
 				D08F67CE2BF8DD61003F0C3F /* Maps.swift in Sources */,
 				D08F67C62BF74059003F0C3F /* UserAnnotationCircle.swift in Sources */,
@@ -523,6 +535,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D098A8122C041943009DE010 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.3;
+			};
+		};
 		D0A5E6972C01E2130091505B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
@@ -534,6 +554,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D098A8132C041943009DE010 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D098A8122C041943009DE010 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		D0A5E6982C01E2130091505B /* FirebaseAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D0A5E6972C01E2130091505B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;

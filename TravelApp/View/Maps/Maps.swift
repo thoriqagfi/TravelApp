@@ -71,7 +71,7 @@ struct Maps: View {
                 }
                 .frame(width: 200, height: 40)
                 .foregroundColor(.white)
-                .background(.blue)
+                .background(.red)
                 .padding()
                 .cornerRadius(8.0)
             }

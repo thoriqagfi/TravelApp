@@ -13,6 +13,7 @@ struct AuthenticationView: View {
     
     var body: some View {
         NavigationStack {
+            LottieViewComponent()
             SignInWithAppleButton(.signIn) { request in
                 let nonce = authenticationViewModel.randomNonceString()
                 authenticationViewModel.nonce = nonce
@@ -30,12 +31,12 @@ struct AuthenticationView: View {
             }
             .frame(width: 280, height: 40)
             .alert(authenticationViewModel.errorMessage, isPresented: $authenticationViewModel.showAlert) {}
-            .overlay {
-                if authenticationViewModel.isLoading {
-                    LoadingScreen()
-                }
-            }
         }
+        .overlay(content: {
+            if authenticationViewModel.isLoading {
+                LoadingScreen()
+            }
+        })
     }
     
     @ViewBuilder
@@ -44,7 +45,7 @@ struct AuthenticationView: View {
             Rectangle()
                 .fill(.ultraThinMaterial)
             ProgressView()
-                .frame(width: 45, height: 45)
+                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
                 .background(.background, in: .rect(cornerRadius: 5))
         })
     }

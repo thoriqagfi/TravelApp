@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import Firebase
 
 struct SiderbarMapsView: View {
     @ObservedObject var placemarkViewModel: PlacemarkViewModel
     @ObservedObject var modelDataViewModel: ModelDataViewModel
+    
+    @AppStorage("log_Status") private var logStatus: Bool = false
     
     var body: some View {
         NavigationSplitView(sidebar: {
@@ -58,6 +61,15 @@ struct SiderbarMapsView: View {
             NavigationStack {
                 Maps(modelDataViewModel: modelDataViewModel, placemarkViewModel: placemarkViewModel)
                     .navigationTitle(placemarkViewModel.selectedPlacemark?.name ?? "Maps")
+                    .toolbar {
+                        ToolbarItem(placement: .confirmationAction) {
+                            Button("Sign Out") {
+                                try? Auth.auth().signOut()
+                                logStatus = false
+                            }
+                            .foregroundStyle(.red)
+                        }
+                    }
             }
         })
     }

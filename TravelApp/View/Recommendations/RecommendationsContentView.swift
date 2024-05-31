@@ -17,7 +17,7 @@ struct RecommendationsContentView: View {
     var body: some View {
         NavigationStack {
             VStack(alignment: .leading) {
-                FavoritePlacemarksView(cloudkitManager: cloudkitManager)
+                FavoritePlacemarksView(placemarkViewModel: placemarkViewModel, cloudkitManager: cloudkitManager)
                 NearPlacemarksView(placemarkViewModel: placemarkViewModel, modelDataViewModel: modelDataViewModel, locationService: locationService)
                 RecommendedPlacemarksView(placemarkViewModel: placemarkViewModel, modelDataViewModel: modelDataViewModel, locationService: locationService)
             }
@@ -28,14 +28,15 @@ struct RecommendationsContentView: View {
             placemarkViewModel.fetchFavoritePlacemarks()
             cloudkitManager.fetchFavoritePlacemarks()
         }
-        .onChange(of: cloudkitManager.favoritePlacemarks, perform: { _ in
+        .onChange(of: cloudkitManager.favoritePlacemarks) {
             placemarkViewModel.fetchFavoritePlacemarks()
             cloudkitManager.fetchFavoritePlacemarks()
-        })
+        }
     }
 }
 
 struct FavoritePlacemarksView: View {
+    @ObservedObject var placemarkViewModel: PlacemarkViewModel
     @ObservedObject var cloudkitManager: CloudKitManager
     
     var body: some View {
@@ -63,7 +64,7 @@ struct FavoritePlacemarksView: View {
                                         Text(placemark.city)
                                             .font(.subheadline)
                                     }
-                                    Spacer()
+                                    Spacer(minLength: 5)
                                     Button(action: {
                                         cloudkitManager.deleteFavoritePlacemark(placemark: placemark)
                                     }) {
@@ -71,13 +72,19 @@ struct FavoritePlacemarksView: View {
                                             .foregroundColor(.red)
                                     }
                                 }
+                                .frame(width: 180, height: 60)
                                 .padding()
                                 .background(Color.white)
                                 .cornerRadius(10)
                                 .shadow(radius: 5)
+                                .onTapGesture {
+                                    placemarkViewModel.selectedPlacemark = placemark
+                                    placemarkViewModel.showDetails.toggle()
+                                }
                             }
                             .padding(5)
                         }
+                        .padding(.vertical)
                     }
                     .padding(.horizontal)
                 }
@@ -122,21 +129,33 @@ struct NearPlacemarksView: View {
                                 VStack(alignment: .leading) {
                                     Text(placemark.name)
                                         .font(.headline)
-                                    Text(placemark.city)
-                                        .font(.subheadline)
-                                    if let userLocation = locationService.location {
-                                        Text("\(placemarkViewModel.distance(from: userLocation, to: placemark), specifier: "%.2f") km away")
-                                            .font(.caption)
+                                    HStack(alignment: .center, spacing: 2) {
+                                        Image(systemName: "mappin.circle.fill")
+                                        Text(placemark.city)
+                                            .font(.subheadline)
+                                    }
+                                    HStack(alignment: .center, spacing: 2) {
+                                        if let userLocation = locationService.location {
+                                            Image(systemName: "location.fill")
+                                            Text("\(placemarkViewModel.distance(from: userLocation, to: placemark), specifier: "%.2f") km away")
+                                                .font(.caption)
+                                        }
                                     }
                                 }
+                                .frame(width: 180, height: 60)
                                 .padding()
                                 .foregroundColor(.white)
                                 .background(Color.blue)
                                 .cornerRadius(10)
                                 .shadow(radius: 5)
+                                .onTapGesture {
+                                    placemarkViewModel.selectedPlacemark = placemark
+                                    placemarkViewModel.showDetails.toggle()
+                                }
                             }
                             .padding(5)
                         }
+                        .padding(.vertical)
                     }
                     .padding(.horizontal)
                 }
@@ -153,7 +172,7 @@ struct RecommendedPlacemarksView: View {
     
     var body: some View {
         VStack(alignment: .leading) {
-            Text("Recommendation at Your Selected City")
+            Text("Recommendation at \(placemarkViewModel.selectedCity ?? "Your Selected City")")
                 .font(.title)
                 .fontWeight(.bold)
                 .padding(.horizontal)
@@ -177,23 +196,37 @@ struct RecommendedPlacemarksView: View {
                                             .font(.headline)
                                         Text(placemark.city)
                                             .font(.subheadline)
-                                        Text("\(String(format: "%.2f", placemark.rating))")
-                                            .font(.caption)
-                                        if let userLocation = locationService.location {
-                                            Text("\(placemarkViewModel.distance(from: userLocation, to: placemark), specifier: "%.2f") km away")
-                                                .font(.caption)
+                                        HStack(alignment: .center, spacing: 8) {
+                                            HStack(spacing: 2) {
+                                                Image(systemName: "star.fill")
+                                                Text("\(String(format: "%.1f", placemark.rating))")
+                                                    .font(.caption)
+                                            }
+                                            HStack(alignment: .center, spacing: 2) {
+                                                if let userLocation = locationService.location {
+                                                    Image(systemName: "location.fill")
+                                                    Text("\(placemarkViewModel.distance(from: userLocation, to: placemark), specifier: "%.2f") km away")
+                                                        .font(.caption)
+                                                }
+                                            }
                                         }
                                     }
                                     Spacer()
                                 }
+                                .frame(width: 180, height: 60)
                                 .padding()
                                 .foregroundColor(.white)
                                 .background(Color.blue)
                                 .cornerRadius(10)
                                 .shadow(radius: 5)
+                                .onTapGesture {
+                                    placemarkViewModel.selectedPlacemark = placemark
+                                    placemarkViewModel.showDetails.toggle()
+                                }
                             }
                             .padding(5)
                         }
+                        .padding(.vertical)
                     }
                     .padding(.horizontal)
                 }

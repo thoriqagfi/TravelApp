@@ -16,7 +16,7 @@ class AuthenticationViewModel: ObservableObject {
     @Published var isLoading: Bool = false
     @Published var nonce: String?
     
-    @AppStorage("log_Status") private var logStatus: Bool = false
+    @AppStorage("log_Status") private var logStatus: Bool = true
     
     func showError(_ message: String) {
         errorMessage = message
